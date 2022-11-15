@@ -13,14 +13,25 @@ import SwiftUI
 
 struct BodyView: View {
     @State var searchText = ""
+    
     var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-            TextField("Search ...", text: $searchText)
+        VStack {
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Search ...", text: $searchText)
+            }
+            .padding()
+            .background(Color(.systemGray6))
+            .padding()
+            // List
+            List {
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+            }
         }
-        .padding()
-        .background(Color(.systemGray6))
-        .padding()
     }
 }
 

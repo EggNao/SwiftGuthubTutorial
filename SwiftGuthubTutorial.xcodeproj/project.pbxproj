@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03D929CA2923829B0094B72C /* PlagroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D929C92923829B0094B72C /* PlagroundView.swift */; };
 		D99035F7291CC8F200A419BF /* SwiftGuthubTutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99035F6291CC8F200A419BF /* SwiftGuthubTutorialApp.swift */; };
 		D99035F9291CC8F200A419BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99035F8291CC8F200A419BF /* ContentView.swift */; };
 		D99035FB291CC8F300A419BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99035FA291CC8F300A419BF /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03D929C92923829B0094B72C /* PlagroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlagroundView.swift; sourceTree = "<group>"; };
 		D99035F3291CC8F200A419BF /* SwiftGuthubTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGuthubTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99035F6291CC8F200A419BF /* SwiftGuthubTutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGuthubTutorialApp.swift; sourceTree = "<group>"; };
 		D99035F8291CC8F200A419BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D99035F6291CC8F200A419BF /* SwiftGuthubTutorialApp.swift */,
 				D9903621291CD65700A419BF /* HeaderView.swift */,
 				D9903625291CDB0000A419BF /* BodyView.swift */,
+				03D929C92923829B0094B72C /* PlagroundView.swift */,
 				D99035F8291CC8F200A419BF /* ContentView.swift */,
 				D99035FD291CC8F300A419BF /* Preview Content */,
 				D99035FA291CC8F300A419BF /* Assets.xcassets */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99035F9291CC8F200A419BF /* ContentView.swift in Sources */,
+				03D929CA2923829B0094B72C /* PlagroundView.swift in Sources */,
 				D9903622291CD65700A419BF /* HeaderView.swift in Sources */,
 				D9903626291CDB0000A419BF /* BodyView.swift in Sources */,
 				D99035F7291CC8F200A419BF /* SwiftGuthubTutorialApp.swift in Sources */,

@@ -14,7 +14,8 @@ struct ContentView: View {
                 HeaderView()
                 Spacer()
             }
-            BodyView()
+//            BodyView()
+            PlagroundView()
         }
         .padding()
     }
