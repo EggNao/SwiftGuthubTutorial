@@ -15,6 +15,7 @@
 		D9903613291CC8F300A419BF /* SwiftGuthubTutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9903612291CC8F300A419BF /* SwiftGuthubTutorialUITests.swift */; };
 		D9903615291CC8F300A419BF /* SwiftGuthubTutorialUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9903614291CC8F300A419BF /* SwiftGuthubTutorialUITestsLaunchTests.swift */; };
 		D9903622291CD65700A419BF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9903621291CD65700A419BF /* HeaderView.swift */; };
+		D9903626291CDB0000A419BF /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9903625291CDB0000A419BF /* BodyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D9903612291CC8F300A419BF /* SwiftGuthubTutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGuthubTutorialUITests.swift; sourceTree = "<group>"; };
 		D9903614291CC8F300A419BF /* SwiftGuthubTutorialUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGuthubTutorialUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D9903621291CD65700A419BF /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D9903625291CDB0000A419BF /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,11 @@
 			children = (
 				D99035F6291CC8F200A419BF /* SwiftGuthubTutorialApp.swift */,
 				D9903621291CD65700A419BF /* HeaderView.swift */,
+				D9903625291CDB0000A419BF /* BodyView.swift */,
 				D99035F8291CC8F200A419BF /* ContentView.swift */,
+				D99035FD291CC8F300A419BF /* Preview Content */,
 				D99035FA291CC8F300A419BF /* Assets.xcassets */,
 				D99035FC291CC8F300A419BF /* SwiftGuthubTutorial.entitlements */,
-				D99035FD291CC8F300A419BF /* Preview Content */,
 			);
 			path = SwiftGuthubTutorial;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				D99035F9291CC8F200A419BF /* ContentView.swift in Sources */,
 				D9903622291CD65700A419BF /* HeaderView.swift in Sources */,
+				D9903626291CDB0000A419BF /* BodyView.swift in Sources */,
 				D99035F7291CC8F200A419BF /* SwiftGuthubTutorialApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

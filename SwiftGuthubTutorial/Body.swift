@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var searchText = ""
     var body: some View {
-        VStack {
-            HStack {
-                HeaderView()
-                Spacer()
-            }
-            BodyView()
+        HStack {
+            Image(systemName: "magnifyingglass")
+            TextField("Search ...", text: $searchText)
         }
-        .padding()
     }
 }
 
