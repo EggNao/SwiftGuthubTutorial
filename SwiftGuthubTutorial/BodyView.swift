@@ -11,8 +11,22 @@ import SwiftUI
 //    var fetchData = "https://api.github.com/search/repositories?q=\(searchText)"
 //}
 
+
 struct BodyView: View {
     @State var searchText = ""
+    
+    struct GithubName: Identifiable, Hashable {
+        var id = UUID()
+        let name: String
+    }
+    
+    let sampleNames = [
+        GithubName(name: "aaa"),
+        GithubName(name: "bbb"),
+        GithubName(name: "ccc"),
+        GithubName(name: "ddd")
+    ]
+    
     
     var body: some View {
         VStack {
@@ -24,12 +38,13 @@ struct BodyView: View {
             .background(Color(.systemGray6))
             .padding()
             // List
-            List {
-                Text("hello")
-                Text("hello")
-                Text("hello")
-                Text("hello")
-                Text("hello")
+            NavigationStack{
+                List(sampleNames) { sampleName in
+                    NavigationLink(sampleName.name, value: sampleName)
+                }
+                .navigationDestination(for: GithubName.self) { sampleName in
+                    Text(sampleName.name)
+                }
             }
         }
     }
