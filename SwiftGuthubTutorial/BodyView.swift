@@ -7,35 +7,31 @@
 
 import SwiftUI
 
-struct GithubRepositoryItems: Codable {
+struct Items: Decodable, Hashable, Identifiable {
+    let id: Int
     let fullName: String
     let htmlUrl: String
-    let stargazersCount: String
-    let watchersCount: Int
-    enum Key: String, CodingKey {
-            case fullName = "full_name"
-            case htmlUrl = "html_url"
-            case stargazersCount = "stargazers_count"
-            case watchersCount = "watchers_count"
-        }
+    let stargazersCount: Int
+    let language: String
+    let forks: Int
 }
 
-struct User: Decodable {
-    let id: Int
-    let name: String
+struct Repository: Decodable {
+    let totalCount: Int
+    let items: Array<Items>
 }
 
-class githubRepogitory: ObservableObject {
+class ViewController: ObservableObject {
     
-    @Published var userData: User?
+    @Published var getGithubRepositoryData: Repository?
     
     init() {
-        getGithubRepogitory()
+        getGithubRepository()
     }
     
-    func getGithubRepogitory() {
+    func getGithubRepository() {
         // サンプルクエリ
-        let requestURL = URL(string: "https://api.github.com/users/MasakatsuTagishi")!
+        let requestURL = URL(string: "https://api.github.com/search/repositories?q=swift")!
         let task = URLSession.shared.dataTask(with: requestURL) { data, response, error in
             // エラーの時
             if let error = error {
@@ -44,45 +40,31 @@ class githubRepogitory: ObservableObject {
             // jsonが帰ってきた時
             else if let data = data {
                 let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do
                 {
-                    let decoded = try decoder.decode(User.self, from: data)
-                    print(decoded)
+                    let decoded = try decoder.decode(Repository.self, from: data)
                     DispatchQueue.main.async {
-                        self.userData = decoded
+                        self.getGithubRepositoryData = decoded
                     }
+                    print(decoded)
                 } catch {
                     print("error")
                 }
             }
         }
         task.resume()
-        
     }
 }
 
 
 struct BodyView: View {
     @State var searchText = ""
-    @State var user: User?
-    @ObservedObject var repository = githubRepogitory()
-    
-    struct GithubName: Identifiable, Hashable {
-        var id = UUID()
-        let name: String
-    }
-    
-    let sampleNames = [
-        GithubName(name: "aaa"),
-        GithubName(name: "bbb"),
-        GithubName(name: "ccc"),
-        GithubName(name: "ddd")
-    ]
-    
+    @State var searchData: Repository?
+    @ObservedObject var repository = ViewController()
     
     var body: some View {
         VStack {
-            Text(repository.userData?.name ?? "")
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField("Search ...", text: $searchText)
@@ -92,17 +74,19 @@ struct BodyView: View {
             .padding()
             // List
             NavigationStack{
-                List(sampleNames) { sampleName in
-                    NavigationLink(sampleName.name, value: sampleName)
+                List(searchData?.items ?? []) { item in
+                    NavigationLink(item.fullName, value: item)
                 }
-                .navigationDestination(for: GithubName.self) { sampleName in
-                    Text(sampleName.name)
+                .listStyle(PlainListStyle())
+                .navigationDestination(for: Items.self) { item in
+                    Text(item.fullName)
                 }
             }
         }
         .onAppear(perform:
                     {
-            print(repository.userData)
+            searchData = repository.getGithubRepositoryData
+            print(searchData)
         })
     }
 }
